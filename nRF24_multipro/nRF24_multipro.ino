@@ -56,17 +56,19 @@
 // SPI input
 #define  MISO_on (PINC & _BV(0)) // PC0
 
-#define RF_POWER TX_POWER_80mW 
+//Uncomment one:
+#define RF_POWER TX_POWER_80mW
+//#define RF_POWER TX_POWER_158mW
 
 // tune ppm input for "special" transmitters
 // #define SPEKTRUM // TAER, 1100-1900, AIL & RUD reversed
 
-// PPM stream settings
+//@ Radionlink PPM stream settings, AETR order
 #define CHANNELS 12 // number of channels in ppm stream, 12 ideally
 enum chan_order{
-    THROTTLE,
     AILERON,
     ELEVATOR,
+    THROTTLE,
     RUDDER,
     AUX1,  // (CH5)  led light, or 3 pos. rate on CX-10, H7, or inverted flight on H101
     AUX2,  // (CH6)  flip control
@@ -78,10 +80,11 @@ enum chan_order{
     AUX8,  // (CH12) Reset / Rebind
 };
 
-#define PPM_MIN 1000
-#define PPM_SAFE_THROTTLE 1050 
+//@ PPM stream settings, adapted for Radiolink
+#define PPM_MIN 1050
+#define PPM_SAFE_THROTTLE 1090 
 #define PPM_MID 1500
-#define PPM_MAX 2000
+#define PPM_MAX 1950
 #define PPM_MIN_COMMAND 1300
 #define PPM_MAX_COMMAND 1700
 #define GET_FLAG(ch, mask) (ppm[ch] > PPM_MAX_COMMAND ? mask : 0)
