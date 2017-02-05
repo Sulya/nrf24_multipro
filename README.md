@@ -1,14 +1,26 @@
+Disclaimer, i do not own any of the rights for this design, I only slightly adapted it for use with Radiolink transmitters.
+Original design by goebish: https://github.com/goebish/nrf24_multipro
+
 # nrf24-multipro
-nRF24L01 multi-protocol RC transmitter
+nRF24L01 multi-protocol RC transmitter, adapted for Radiolink Transmitters. Probably won't be updated too often
 
 ![Screenshot](http://i.imgur.com/AeMJKzT.jpg)  
 [Need a module ?](mailto://goebish@gmail.com)
 
-## Binding Procedure
-- Create a model in OpenTX using external module in PPM mode, 12 channels and TAER sequence order.
-- Turn off Taranis.
+## Module creation:
+! Important notice !
+Since the used voltage regulator cannot handle the 12.6V voltage of the fully charged 3S lipo battery, or at least not at full transmitting power, an addition of 12to5V switching power supply of your choise is needed, otherwise both the regulator and the nrf24 board will be fried.
+
+## First use:
+- Create a new model in your transmitter.
+- In transmitter settings, reverse the Throttle and Elevator channels.
+- In transmitter settings, change the endpoints for the first four channels from 100 to 140.
+- (Optional) In transmitter settings disable the radio. This will save you some battery life.
+
+## Binding procedure
+- Turn off the transmitter
 - Power up quad.
-- While holding the appropriate stick pattern listed below, power up Taranis.
+- While holding the appropriate stick pattern listed below, power up the transmitter.
 - Arm quad based on it's firmware's specification. 
 
 
